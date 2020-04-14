@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="IRepository\" />
     <Folder Include="IUnitOfWork\" />
   </ItemGroup>
