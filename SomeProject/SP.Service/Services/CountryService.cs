@@ -1,13 +1,13 @@
-﻿using SP.Domain.Entities;
-using SP.Domain.IRepository;
+﻿using SP.Service.DTOs.Country;
+using SP.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace SP.Infrastructure.Repository
+namespace SP.Service.Services
 {
-    public class CountryRepository : ICountryRepository
+    public class CountryService : ICountryService
     {
-        public long Create(Country country)
+        public long Create(CountryDto country)
         {
             throw new NotImplementedException();
         }
@@ -17,17 +17,17 @@ namespace SP.Infrastructure.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Country> GetAll()
+        public IEnumerable<CountryDto> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Country GetById(long id)
+        public CountryDto GetById(long id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Country country)
+        public void Update(CountryDto country)
         {
             throw new NotImplementedException();
         }

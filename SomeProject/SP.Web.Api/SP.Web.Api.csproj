@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SP.Infrastructure\SP.Infrastructure.csproj" />
+    <ProjectReference Include="..\SP.Service\SP.Service.csproj" />
   </ItemGroup>
 
 

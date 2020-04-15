@@ -1,12 +1,10 @@
-﻿namespace SP.Domain.Entities
+﻿namespace SP.Web.Api.ViewModels
 {
-    public class Country : Entity
+    public class CountryViewModel : BaseViewModel
     {
         public string Name { get; set; }
         public string ShortName { get; set; }
         public byte[] Flag { get; set; }
         public string CurrencyCode { get; set; }
-
-        // Navigation properties
     }
 }
