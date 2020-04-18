@@ -15,12 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
+    <ProjectReference Include="..\SP.Domain\SP.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SP.Application\SP.Application.csproj" />
-    <ProjectReference Include="..\SP.Domain\SP.Domain.csproj" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

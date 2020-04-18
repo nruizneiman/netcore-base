@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IUnitOfWork\" />
+    <Folder Include="FluentApi\" />
   </ItemGroup>
 
 </Project>
