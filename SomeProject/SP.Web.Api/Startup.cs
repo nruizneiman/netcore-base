@@ -10,9 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SP.Infrastructure.Contexts;
+using SP.Application.IOC;
 
-namespace SP.Web.Api
+namespace SP.Web.API
 {
     public class Startup
     {
@@ -27,7 +27,8 @@ namespace SP.Web.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>();
+
+            IoC.AddDependency(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

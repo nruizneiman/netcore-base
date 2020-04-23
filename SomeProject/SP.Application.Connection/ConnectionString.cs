@@ -1,4 +1,4 @@
-﻿namespace SP.Application
+﻿namespace SP.Application.Connection
 {
     public static class ConnectionString
     {

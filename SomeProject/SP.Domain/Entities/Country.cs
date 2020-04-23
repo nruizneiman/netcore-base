@@ -1,4 +1,6 @@
-﻿namespace SP.Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace SP.Domain.Entities
 {
     public class Country : Entity
     {
@@ -8,5 +10,6 @@
         public string CurrencyCode { get; set; }
 
         // Navigation properties
+        public IEnumerable<State> States { get; set; }
     }
 }

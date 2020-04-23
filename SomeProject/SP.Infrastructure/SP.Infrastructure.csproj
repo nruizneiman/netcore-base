@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SP.Application.Connection\SP.Application.Connection.csproj" />
     <ProjectReference Include="..\SP.Domain\SP.Domain.csproj" />
   </ItemGroup>
 

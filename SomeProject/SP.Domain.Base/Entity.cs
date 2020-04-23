@@ -1,8 +1,10 @@
-﻿namespace SP.Domain
+﻿using System;
+
+namespace SP.Domain.Base
 {
     public class Entity
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         public bool IsDeleted { get; set; }
         public byte[] RowVersion { get; set; }
     }

@@ -19,57 +19,57 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{548ABA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{259E0FDE-0A9E-4404-9799-1DE475DACB21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Web.Api", "SP.Web.Api\SP.Web.Api.csproj", "{4C58A273-8E6D-4AD9-9216-E9364B59EF3F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Domain", "SP.Domain\SP.Domain.csproj", "{08C12E9A-9D07-43AC-8F0D-4AC5B85765F1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Infrastructure", "SP.Infrastructure\SP.Infrastructure.csproj", "{7487C931-D2AD-429E-8609-D30EC7ABCD65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{69CC8524-F01A-416C-ADFB-34465F428920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Web.MVC", "SP.Web.MVC\SP.Web.MVC.csproj", "{BA9858B0-9983-4CD1-B7B9-234EEF7543CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Web.MVC", "SP.Web.MVC\SP.Web.MVC.csproj", "{BA9858B0-9983-4CD1-B7B9-234EEF7543CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Web.Api.Tests", "SP.Web.Api.Tests\SP.Web.Api.Tests.csproj", "{05DE04B6-E3C7-492E-AEC1-CD7B9B0C46F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Web.Api.Tests", "SP.Web.Api.Tests\SP.Web.Api.Tests.csproj", "{05DE04B6-E3C7-492E-AEC1-CD7B9B0C46F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Web.MVC.Tests", "SP.Web.MVC.Tests\SP.Web.MVC.Tests.csproj", "{D4F23909-0998-486E-BFD1-F84CF1A937E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Web.MVC.Tests", "SP.Web.MVC.Tests\SP.Web.MVC.Tests.csproj", "{D4F23909-0998-486E-BFD1-F84CF1A937E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Connection", "SP.Application.Connection\SP.Application.Connection.csproj", "{DD98BA5C-3930-4434-BF65-0BF058B98AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Connection", "SP.Application.Connection\SP.Application.Connection.csproj", "{DD98BA5C-3930-4434-BF65-0BF058B98AA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Printer", "SP.Application.Printer\SP.Application.Printer.csproj", "{DB9FAE46-7F2C-4B76-84E9-9DA8FA7477E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Printer", "SP.Application.Printer\SP.Application.Printer.csproj", "{DB9FAE46-7F2C-4B76-84E9-9DA8FA7477E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Constants", "SP.Application.Constants\SP.Application.Constants.csproj", "{B2087498-4003-47DB-953C-55EFFC812D3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Constants", "SP.Application.Constants\SP.Application.Constants.csproj", "{B2087498-4003-47DB-953C-55EFFC812D3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Mapper", "SP.Application.Mapper\SP.Application.Mapper.csproj", "{B7DB5235-E1E4-41F1-924D-5785A6F38B51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Mapper", "SP.Application.Mapper\SP.Application.Mapper.csproj", "{B7DB5235-E1E4-41F1-924D-5785A6F38B51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{06AC521F-9DFF-4935-99B6-2DDDFAD6510D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{75219903-F49F-4525-916B-54AD81D790D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Service.IService", "SP.Service.IService\SP.Service.IService.csproj", "{0A76F4A4-CA0D-4A45-9CC4-1DB64F5B2487}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Service.IService", "SP.Service.IService\SP.Service.IService.csproj", "{0A76F4A4-CA0D-4A45-9CC4-1DB64F5B2487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.IOC", "SP.Application.IOC\SP.Application.IOC.csproj", "{68F97801-E71C-4346-B3EC-2B574DF53932}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.IOC", "SP.Application.IOC\SP.Application.IOC.csproj", "{68F97801-E71C-4346-B3EC-2B574DF53932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Service", "SP.Service\SP.Service.csproj", "{23CD1298-3B0A-49A0-9D58-30930762163B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Service", "SP.Service\SP.Service.csproj", "{23CD1298-3B0A-49A0-9D58-30930762163B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Service.Mapper", "SP.Service.Mapper\SP.Service.Mapper.csproj", "{4C704B46-F68F-4485-B167-54643AF299F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Service.Mapper", "SP.Service.Mapper\SP.Service.Mapper.csproj", "{4C704B46-F68F-4485-B167-54643AF299F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Service.Tests", "SP.Service.Tests\SP.Service.Tests.csproj", "{3140BEDF-0CD5-4E27-8418-AB65E5E99330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Service.Tests", "SP.Service.Tests\SP.Service.Tests.csproj", "{3140BEDF-0CD5-4E27-8418-AB65E5E99330}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Mail", "SP.Application.Mail\SP.Application.Mail.csproj", "{220066A7-1F65-41ED-8C9D-18E5AB98B9CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Mail", "SP.Application.Mail\SP.Application.Mail.csproj", "{220066A7-1F65-41ED-8C9D-18E5AB98B9CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Domain.Base", "SP.Domain.Base\SP.Domain.Base.csproj", "{4FC56A4A-019E-4D49-A4CF-520645AFB326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Domain.Base", "SP.Domain.Base\SP.Domain.Base.csproj", "{4FC56A4A-019E-4D49-A4CF-520645AFB326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Infrastructure.Base", "SP.Infrastructure.Base\SP.Infrastructure.Base.csproj", "{E89201BC-80A6-4678-9A1B-A236C8C959AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Infrastructure.Base", "SP.Infrastructure.Base\SP.Infrastructure.Base.csproj", "{E89201BC-80A6-4678-9A1B-A236C8C959AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Infrastructure.Tests", "SP.Infrastructure.Tests\SP.Infrastructure.Tests.csproj", "{95808C23-72D5-44EE-9900-38209B2C5126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Infrastructure.Tests", "SP.Infrastructure.Tests\SP.Infrastructure.Tests.csproj", "{95808C23-72D5-44EE-9900-38209B2C5126}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{98F87CF0-5CA6-430C-951C-90AE32C0C472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Service.Identity", "SP.Service.Identity\SP.Service.Identity.csproj", "{EE711DC2-7D29-4E84-871A-506FCF4AE83A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Service.Identity", "SP.Service.Identity\SP.Service.Identity.csproj", "{EE711DC2-7D29-4E84-871A-506FCF4AE83A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Application.Exceptions", "SP.Application.Exceptions\SP.Application.Exceptions.csproj", "{21936C5E-F70A-4708-AAB1-0521DF53DA18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SP.Application.Exceptions", "SP.Application.Exceptions\SP.Application.Exceptions.csproj", "{21936C5E-F70A-4708-AAB1-0521DF53DA18}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF", "WCF", "{B7C95975-5709-4E3E-AF64-263326B43F3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP.Web.API", "SP.Web.API\SP.Web.API.csproj", "{53168AE5-C37F-4A01-A6BB-64472E7D8DFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,10 +77,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C58A273-8E6D-4AD9-9216-E9364B59EF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C58A273-8E6D-4AD9-9216-E9364B59EF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C58A273-8E6D-4AD9-9216-E9364B59EF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C58A273-8E6D-4AD9-9216-E9364B59EF3F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08C12E9A-9D07-43AC-8F0D-4AC5B85765F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08C12E9A-9D07-43AC-8F0D-4AC5B85765F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C12E9A-9D07-43AC-8F0D-4AC5B85765F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -161,6 +157,10 @@ Global
 		{21936C5E-F70A-4708-AAB1-0521DF53DA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21936C5E-F70A-4708-AAB1-0521DF53DA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21936C5E-F70A-4708-AAB1-0521DF53DA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53168AE5-C37F-4A01-A6BB-64472E7D8DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53168AE5-C37F-4A01-A6BB-64472E7D8DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53168AE5-C37F-4A01-A6BB-64472E7D8DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53168AE5-C37F-4A01-A6BB-64472E7D8DFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,7 +169,6 @@ Global
 		{A142732C-2C1D-418A-B1DD-2BEBC8D07450} = {CAD26EF4-8F48-4102-AAA5-1B22D5E1360F}
 		{548ABA88-47A4-4D2C-8652-A46E421C6095} = {CAD26EF4-8F48-4102-AAA5-1B22D5E1360F}
 		{259E0FDE-0A9E-4404-9799-1DE475DACB21} = {CAD26EF4-8F48-4102-AAA5-1B22D5E1360F}
-		{4C58A273-8E6D-4AD9-9216-E9364B59EF3F} = {69CC8524-F01A-416C-ADFB-34465F428920}
 		{08C12E9A-9D07-43AC-8F0D-4AC5B85765F1} = {DCBD46F6-753F-4F5F-A896-CC5E7377DDDB}
 		{7487C931-D2AD-429E-8609-D30EC7ABCD65} = {43F026AF-8BD3-4589-B0DC-44ABB36C0FFC}
 		{69CC8524-F01A-416C-ADFB-34465F428920} = {CAD26EF4-8F48-4102-AAA5-1B22D5E1360F}
@@ -195,6 +194,7 @@ Global
 		{EE711DC2-7D29-4E84-871A-506FCF4AE83A} = {98F87CF0-5CA6-430C-951C-90AE32C0C472}
 		{21936C5E-F70A-4708-AAB1-0521DF53DA18} = {CFB56D86-AE7C-4EB1-BFA0-0666563148C9}
 		{B7C95975-5709-4E3E-AF64-263326B43F3D} = {CAD26EF4-8F48-4102-AAA5-1B22D5E1360F}
+		{53168AE5-C37F-4A01-A6BB-64472E7D8DFE} = {69CC8524-F01A-416C-ADFB-34465F428920}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDA183AA-2F88-4ABD-A5F1-60C301F8B5BB}

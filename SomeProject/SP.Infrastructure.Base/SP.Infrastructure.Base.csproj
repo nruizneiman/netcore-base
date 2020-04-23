@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
+    <ProjectReference Include="..\SP.Domain.Base\SP.Domain.Base.csproj" />
+    <ProjectReference Include="..\SP.Infrastructure\SP.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
