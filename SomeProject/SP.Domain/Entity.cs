@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SP.Domain.Base
+namespace SP.Domain
 {
     public class Entity
     {
