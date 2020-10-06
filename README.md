@@ -1,4 +1,3 @@
-# netcore-base
-[![Build Status](https://dev.azure.com/NCRZ06/netcore-base/_apis/build/status/NICORUIZ06.netcore-base?branchName=master)](https://dev.azure.com/NCRZ06/netcore-base/_build/latest?definitionId=3&branchName=master)
+# .NET Core base project
 
-.NET Core base project
+![.NET Core](https://github.com/fundacionadoptar/identity-seekers-registry/workflows/.NET%20Core/badge.svg)
