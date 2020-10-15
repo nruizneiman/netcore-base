@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
@@ -16,8 +15,5 @@ namespace Domain
         public DateTime CreationDate { get; private set; }
         public DateTime? LastUpdate { get; set; }
         public bool IsEnabled { get; set; }
-
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
     }
 }

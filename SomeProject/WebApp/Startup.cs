@@ -104,6 +104,8 @@ namespace WebApp
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor |
                                    ForwardedHeaders.XForwardedProto
             });
+
+            ServiceCollectionExtension.UpdateDatabase(app);
         }
     }
 }
