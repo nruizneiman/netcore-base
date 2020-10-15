@@ -15,6 +15,7 @@ namespace WebApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ServiceCollectionExtension.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -75,6 +76,8 @@ namespace WebApi
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor |
                                    ForwardedHeaders.XForwardedProto
             });
+
+            ServiceCollectionExtension.UpdateDatabase(app);
         }
     }
 }

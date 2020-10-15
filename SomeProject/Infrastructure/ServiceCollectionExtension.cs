@@ -1,8 +1,10 @@
 ﻿using Core;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Infrastructure
 {
@@ -11,6 +13,41 @@ namespace Infrastructure
         public static IConfiguration Configuration { get; set; }
 
         public static IServiceCollection RegisterInfrastructureDependencies(this IServiceCollection services)
+        {
+            var dbProvider = Configuration.GetValue<DbProvider>("DbProvider");
+            switch (dbProvider)
+            {
+                case DbProvider.SqlServer:
+                    ConfigureForSqlServer(services);
+                    break;
+                case DbProvider.InMemory:
+                    ConfigureForInMemory(services);
+                    break;
+                case DbProvider.MySQL:
+                    ConfigureForMySQL(services);
+                    break;                
+                default:
+                    ConfigureForSqlServer(services);
+                    break;
+            }
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IMailProviderHelper, MailProviderHelper>(serviceProvider => BuildMailProvider());
+
+            return services;
+        }
+
+        private static void ConfigureForMySQL(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        private static void ConfigureForInMemory(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
+        }
+
+        private static void ConfigureForSqlServer(IServiceCollection services)
         {
             if (!string.IsNullOrEmpty(Configuration.GetConnectionString("DefaultConnection")))
             {
@@ -21,11 +58,21 @@ namespace Infrastructure
                 // For development usage only
                 services.AddDbContext<DataContext>(options => options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SomeProject;Trusted_Connection=True;MultipleActiveResultSets=true"));
             }
+        }
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped<IMailProviderHelper, MailProviderHelper>(serviceProvider => BuildMailProvider());
-
-            return services;
+        public static void UpdateDatabase(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using (var context = serviceScope.ServiceProvider.GetService<DataContext>())
+                {
+                    context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
+                    context.Database.Migrate();
+                    context.Database.EnsureCreated();
+                }
+            }
         }
 
         private static MailProviderHelper BuildMailProvider()
