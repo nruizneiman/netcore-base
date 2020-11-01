@@ -1,5 +1,6 @@
 ﻿using Core.State.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    [ApiVersion("1")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
     public class StatesController : ControllerBase
     {

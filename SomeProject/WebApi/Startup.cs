@@ -1,12 +1,18 @@
+using System;
+using System.Text;
 using Core;
+using Domain.Entities;
 using Infrastructure;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace WebApi
 {
@@ -23,14 +29,64 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("JWTSecretKey"));
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+    
             services.AddControllers();
 
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<DataContext>();
+
             services.AddSwaggerGen(config =>
-                config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
+            {
+                config.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Title = "Some Project",
                     Description = "Open-source .NET Core template"
-                }));
+                });
+
+                config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef')",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
 
             services.AddCors(options =>
             {
@@ -41,7 +97,7 @@ namespace WebApi
                     .AllowCredentials());
             });
 
-            services.AddApiVersioning();
+            // services.AddApiVersioning();
 
             services.RegisterInfrastructureDependencies();
             services.AddMediatR(typeof(Startup), typeof(CoreAssemblies));
@@ -59,6 +115,7 @@ namespace WebApi
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
