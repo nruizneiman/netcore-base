@@ -67,8 +67,12 @@ namespace Infrastructure
             {
                 using (var context = serviceScope.ServiceProvider.GetService<DataContext>())
                 {
-                    context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
-                    context.Database.Migrate();
+                    if (context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+                    {
+                        context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
+                        context.Database.Migrate();
+                    }
+
                     context.Database.EnsureCreated();
                 }
             }

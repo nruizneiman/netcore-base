@@ -9,7 +9,7 @@ Also, this repository was created as a template repository, so you can create a 
 Please feel free to collaborate, open issues, and don't forget to give me your star!
 
 # Technologies used
-- . NET Core
+- .NET Core
 - EntityFramework Core
 - MediatR
 - Docker
