@@ -17,6 +17,7 @@ namespace Infrastructure
             {
                 using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
 
+                csvWriter.Configuration.Delimiter = ";";
                 csvWriter.Configuration.AutoMap<T>();
                 csvWriter.WriteRecords(records);
             }
