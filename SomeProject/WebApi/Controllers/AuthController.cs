@@ -74,45 +74,5 @@ namespace WebApi.Controllers
 
             return Unauthorized("Unauthorized access.");
         }
-
-        [HttpPost("/authorizeAnonymous")]
-        public IActionResult AuthorizeAnonymous()
-        {
-            var user = new ApplicationUser
-            {
-                FirstName = "Eduardo",
-                Email = "admin@kodoti.com",
-                Id = 1
-            };
-
-            var secretKey = _configuration.GetValue<string>("JWTSecretKey");
-            var key = Encoding.ASCII.GetBytes(secretKey);
-
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email)
-            };
-
-            var expires = DateTime.UtcNow.AddMinutes(1);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = expires,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var createdToken = tokenHandler.CreateToken(tokenDescriptor);
-
-            var response = new AuthorizationResponse
-            {
-                Token = tokenHandler.WriteToken(createdToken),
-                Expires = expires
-            };
-
-            return Ok(response);
-        }
     }
 }

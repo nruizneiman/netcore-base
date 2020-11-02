@@ -22,9 +22,14 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{countryId}")]
+        [HttpGet]
         public async Task<IActionResult> GetStatesByCountryAsync([FromQuery]int countryId)
         {
+            if(countryId == 0)
+            {
+                return BadRequest();
+            }
+
             try
             {
                 return Ok(await _mediator.Send(new GetStatesByCountryQuery(countryId)));
