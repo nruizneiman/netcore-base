@@ -1,4 +1,6 @@
-﻿using Core.Country.Queries;
+﻿using Core;
+using Core.Country.DTOs;
+using Core.Country.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +15,15 @@ namespace WebApi.Controllers
     [ApiController]
     public class CountriesController : ControllerBase
     {
+        private readonly IFileBuilder<CountryDto> _fileBuilder;
         private readonly IMediator _mediator;
         private readonly ILogger<CountriesController> _logger;
 
-        public CountriesController(ILogger<CountriesController> logger, IMediator mediator)
+        public CountriesController(ILogger<CountriesController> logger, IMediator mediator, IFileBuilder<CountryDto> fileBuilder)
         {
             _logger = logger;
             _mediator = mediator;
+            _fileBuilder = fileBuilder;
         }
 
         [HttpGet]
@@ -28,6 +32,22 @@ namespace WebApi.Controllers
             try
             {
                 return Ok(await _mediator.Send(new GetAllCountriesQuery()));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+        }
+
+        [HttpGet("csv")]
+        public async Task<IActionResult> GetCountriesAsCsvAsync()
+        {
+            try
+            {
+                var countries = await _mediator.Send(new GetAllCountriesQuery());
+
+                return File(_fileBuilder.ToCsv(countries), "application/CSV", "Countries.csv");
             }
             catch (Exception ex)
             {

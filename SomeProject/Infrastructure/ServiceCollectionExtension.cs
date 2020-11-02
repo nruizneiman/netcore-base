@@ -31,6 +31,7 @@ namespace Infrastructure
             }
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IFileBuilder<>), typeof(FileBuilder<>));
             services.AddScoped<IMailProviderHelper, MailProviderHelper>(serviceProvider => BuildMailProvider());
 
             return services;
