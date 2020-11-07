@@ -55,5 +55,21 @@ namespace WebApi.Controllers
                 throw;
             }
         }
+
+        [HttpGet("pdf")]
+        public async Task<IActionResult> GetCountriesAsPdfAsync()
+        {
+            try
+            {
+                var countries = await _mediator.Send(new GetAllCountriesQuery());
+
+                return File(_fileBuilder.ToPdf(countries), "application/PDF", "Countries.pdf");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+        }
     }
 }

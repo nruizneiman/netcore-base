@@ -1,9 +1,11 @@
 ﻿using Core;
 using CsvHelper;
-using System;
+using IronPdf;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Infrastructure
 {
@@ -29,12 +31,39 @@ namespace Infrastructure
         #region PDF
         public byte[] ToPdf(IEnumerable<T> records)
         {
-            throw new NotImplementedException();
+            var Renderer = new HtmlToPdf();
+
+            var type = typeof(T);
+            var props = type.GetProperties();
+            var html = new StringBuilder("<table>");
+
+            //Header
+            html.Append("<thead><tr>");
+            foreach (var p in props)
+                html.Append("<th>" + p.Name + "</th>");
+            html.Append("</tr></thead>");
+
+            //Body
+            html.Append("<tbody>");
+            foreach (var record in records)
+            {
+                html.Append("<tr>");
+                props.Select(s => s.GetValue(record)).ToList().ForEach(p => {
+                    html.Append("<td>" + p + "</td>");
+                });
+                html.Append("</tr>");
+            }
+
+            html.Append("</tbody>");
+            html.Append("</table>");
+
+            return Renderer.RenderHtmlAsPdf(html.ToString()).BinaryData;
         }
 
         public byte[] ToPdf(string html)
         {
-            throw new NotImplementedException();
+            var Renderer = new HtmlToPdf();
+            return Renderer.RenderHtmlAsPdf(html).BinaryData;
         }
         #endregion
     }
