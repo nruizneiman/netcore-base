@@ -97,8 +97,6 @@ namespace WebApi
                     .AllowCredentials());
             });
 
-            // services.AddApiVersioning();
-
             services.RegisterInfrastructureDependencies();
             services.AddMediatR(typeof(Startup), typeof(CoreAssemblies));
         }

@@ -1,4 +1,5 @@
-﻿using Core.Country.DTOs;
+﻿using AutoMapper;
+using Core.Country.DTOs;
 using Core.Country.Queries;
 using MediatR;
 using System.Collections.Generic;
@@ -11,23 +12,20 @@ namespace Core.Country.Handlers
     public class GetAllCountriesHandler : IRequestHandler<GetAllCountriesQuery, IEnumerable<CountryDto>>
     {
         private readonly IRepository<Domain.Entities.Country> _countryRepository;
+        private readonly IMapper _mapper;
 
-        public GetAllCountriesHandler(IRepository<Domain.Entities.Country> countryRepository)
+        public GetAllCountriesHandler(IRepository<Domain.Entities.Country> countryRepository, IMapper mapper)
         {
             _countryRepository = countryRepository;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<CountryDto>> Handle(GetAllCountriesQuery request, CancellationToken cancellationToken)
         {
             return await Task.FromResult(
-                _countryRepository.Get().Select(x => new CountryDto
-                {
-                    Id = x.Id,
-                    Name = x.Name
-                })
+                _mapper.Map<IEnumerable<CountryDto>>(_countryRepository.Get()
                 .OrderBy(x => x.Name)
-                .ToList()
-                );
+                .ToList()));
         }
     }
 }

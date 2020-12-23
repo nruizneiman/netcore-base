@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using AutoMapper;
+using Core;
+using Domain;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +35,8 @@ namespace Infrastructure
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IFileBuilder<>), typeof(FileBuilder<>));
             services.AddScoped<IMailProviderHelper, MailProviderHelper>(serviceProvider => BuildMailProvider());
+
+            services.AddAutoMapper(typeof(ServiceCollectionExtension));
 
             return services;
         }
