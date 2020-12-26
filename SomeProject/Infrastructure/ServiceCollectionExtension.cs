@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core;
-using Domain;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
