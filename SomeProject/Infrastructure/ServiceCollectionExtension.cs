@@ -25,9 +25,12 @@ namespace Infrastructure
                     break;
                 case DbProvider.MySQL:
                     ConfigureForMySQL(services);
-                    break;                
+                    break;
+                case DbProvider.PostgreSQL:
+                    ConfigureForPostgreSQL(services);
+                    break;
                 default:
-                    ConfigureForSqlServer(services);
+                    ConfigureForInMemory(services);
                     break;
             }
 
@@ -40,27 +43,24 @@ namespace Infrastructure
             return services;
         }
 
-        private static void ConfigureForMySQL(IServiceCollection services)
+        private static void ConfigureForSqlServer(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"), x => x.EnableRetryOnFailure()));
         }
 
         private static void ConfigureForInMemory(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(Configuration.GetConnectionString("InMemoryConnection")));
         }
 
-        private static void ConfigureForSqlServer(IServiceCollection services)
+        private static void ConfigureForMySQL(IServiceCollection services)
         {
-            if (!string.IsNullOrEmpty(Configuration.GetConnectionString("DefaultConnection")))
-            {
-                services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.EnableRetryOnFailure()));
-            }
-            else
-            {
-                // For development usage only
-                services.AddDbContext<DataContext>(options => options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SomeProject;Trusted_Connection=True;MultipleActiveResultSets=true"));
-            }
+            services.AddDbContext<DataContext>(options => options.UseMySQL(Configuration.GetConnectionString("MySqlConnection")));
+        }
+
+        private static void ConfigureForPostgreSQL(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSqlConnection")));
         }
 
         public static void UpdateDatabase(IApplicationBuilder app)
