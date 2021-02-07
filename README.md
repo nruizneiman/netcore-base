@@ -9,16 +9,17 @@ Also, this repository was created as a template repository, so you can create a 
 Please feel free to collaborate, open issues, and don't forget to give me your star!
 
 # Technologies used
-- .NET Core
+- .NET 5
 - EntityFramework Core
 - MediatR
 - Docker
 
 ## DB Providers
 You can use multiple DB Providers by changing the "DbProvider" setting with one of the following values:
-- SqlServer
-- InMemory
-- MySQL
+- `SqlServer`
+- `InMemory` _(Default)_
+- `MySQL`
+- `PostgreSQL`
 
 Also, you can add a new DB Provider as well.
 
@@ -27,7 +28,7 @@ First, you need to know what you want to do. Maybe a WebApplication, an API?
 
 Second, set the project you want to start as a default project and run it!
 
-Maybe you will need to update the "DefaultConnectionString" to a local one before starting the project.
+Maybe you will need to update the connection string of the provider that you want to use to a local one before starting the project.
 
 # Questions?
 You may have some questions, please feel free to reach me if you want to discuss something or propose ideas by opening an issue or contacting me using my contact info described in my profile.
@@ -38,4 +39,5 @@ This template and all its code, are open-source and available for everyone. Feel
 And if you want to, you can reference this project on your README to let other people start at the same point!
 
 Thanks for your support
+
 Nicolas
