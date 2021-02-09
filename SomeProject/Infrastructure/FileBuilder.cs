@@ -37,13 +37,13 @@ namespace Infrastructure
             var props = type.GetProperties();
             var html = new StringBuilder("<table>");
 
-            //Header
+            // Header
             html.Append("<thead><tr>");
             foreach (var p in props)
                 html.Append("<th>" + p.Name + "</th>");
             html.Append("</tr></thead>");
 
-            //Body
+            // Body
             html.Append("<tbody>");
             foreach (var record in records)
             {
