@@ -1,6 +1,6 @@
 # .NET Core base project
 
-![.NET Core (Restore, Build and Test)](https://github.com/NICORUIZ06/netcore-base/workflows/.NET%20Core%20(Restore,%20Build%20and%20Test)/badge.svg)
+![.NET Core (Restore, Build and Test)](https://github.com/nruizneiman/netcore-base/workflows/.NET%20Core%20(Restore,%20Build%20and%20Test)/badge.svg)
 
 This project wants to be a start point for new projects, as well as an example for new developers about how to use some technologies, patterns, and best practices.
 
