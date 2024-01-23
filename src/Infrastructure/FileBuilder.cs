@@ -19,8 +19,9 @@ namespace Infrastructure
             {
                 using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
 
-                csvWriter.Configuration.Delimiter = ";";
-                csvWriter.Configuration.AutoMap<T>();
+                // TODO: Fix this method, the following 2 lines make the application to not build
+                //csvWriter.Configuration.Delimiter = ";";
+                //csvWriter.Configuration.AutoMap<T>();
                 csvWriter.WriteRecords(records);
             }
 
@@ -31,7 +32,7 @@ namespace Infrastructure
         #region PDF
         public byte[] ToPdf(IEnumerable<T> records)
         {
-            var Renderer = new HtmlToPdf();
+            var Renderer = new ChromePdfRenderer();
 
             var type = typeof(T);
             var props = type.GetProperties();
@@ -62,7 +63,7 @@ namespace Infrastructure
 
         public byte[] ToPdf(string html)
         {
-            var Renderer = new HtmlToPdf();
+            var Renderer = new ChromePdfRenderer();
             return Renderer.RenderHtmlAsPdf(html).BinaryData;
         }
         #endregion

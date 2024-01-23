@@ -98,7 +98,7 @@ namespace WebApi
             });
 
             services.RegisterInfrastructureDependencies();
-            services.AddMediatR(typeof(Startup), typeof(CoreAssemblies));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
