@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Core;
+﻿using Core;
 using MailKit.Net.Smtp;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,24 +61,25 @@ namespace Infrastructure
             services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSqlConnection")));
         }
 
-        public static void UpdateDatabase(IApplicationBuilder app)
-        {
-            using (var serviceScope = app.ApplicationServices
-                .GetRequiredService<IServiceScopeFactory>()
-                .CreateScope())
-            {
-                using (var context = serviceScope.ServiceProvider.GetService<DataContext>())
-                {
-                    if (context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
-                    {
-                        context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
-                        context.Database.Migrate();
-                    }
+        // TODO: This method prevents to build because of the type IApplicationBuilder which can not be found
+        //public static void UpdateDatabase(IApplicationBuilder app)
+        //{
+        //    using (var serviceScope = app.ApplicationServices
+        //        .GetRequiredService<IServiceScopeFactory>()
+        //        .CreateScope())
+        //    {
+        //        using (var context = serviceScope.ServiceProvider.GetService<DataContext>())
+        //        {
+        //            if (context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory")
+        //            {
+        //                context.Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );");
+        //                context.Database.Migrate();
+        //            }
 
-                    context.Database.EnsureCreated();
-                }
-            }
-        }
+        //            context.Database.EnsureCreated();
+        //        }
+        //    }
+        //}
 
         private static MailProviderHelper BuildMailProvider()
         {

@@ -107,7 +107,7 @@ namespace WebApp
                                    ForwardedHeaders.XForwardedProto
             });
 
-            ServiceCollectionExtension.UpdateDatabase(app);
+            //ServiceCollectionExtension.UpdateDatabase(app);
         }
     }
 }

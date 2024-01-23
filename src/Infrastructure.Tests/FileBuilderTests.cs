@@ -5,7 +5,7 @@ namespace Infrastructure.Tests
 {
     public class FileBuilderTests
     {
-        private readonly IFileBuilder<object> _fileBuilder;
+        private readonly FileBuilder<object> _fileBuilder;
 
         public FileBuilderTests()
         {
