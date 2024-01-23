@@ -65,7 +65,7 @@ namespace TemplateJob
                     logging.AddConsole();
                 })
                 .ConfigureServices((_, services) =>
-                    services.AddMediatR(typeof(Program), typeof(CoreAssemblies))
+                    services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()))
                     .RegisterInfrastructureDependencies());
 
             return host;
