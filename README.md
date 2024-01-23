@@ -4,12 +4,12 @@
 
 This project wants to be a start point for new projects, as well as an example for new developers about how to use some technologies, patterns, and best practices.
 
-Also, this repository was created as a template repository, so you can create a new project by using the "Use this template" button, or [clicking here](https://github.com/NICORUIZ06/netcore-base/generate).
+Also, this repository was created as a template repository, so you can create a new project by using the "Use this template" button, or [clicking here](https://github.com/nruizneiman/netcore-base/generate).
 
 Please feel free to collaborate, open issues, and don't forget to give me your star!
 
 # Technologies used
-- .NET 5
+- .NET 8
 - EntityFramework Core
 - MediatR
 - Docker
